@@ -13,6 +13,7 @@ export default async function Home() {
     data: { user },
     error,
   } = await supabase.auth.getUser()
+
   if (error) {
     console.error('Error fetching user:', error)
   } else {
@@ -30,6 +31,7 @@ export default async function Home() {
           'Not Logged in'
         )}
       </h1>
+
       <form className='flex gap-4 mb-4'>
         <button
           className='bg-green-600 text-white rounded px-4 py-2 hover:bg-green-700 transition'
@@ -44,11 +46,11 @@ export default async function Home() {
           Logout
         </button>
       </form>
+
       <div className='flex flex-col sm:flex-row gap-12 w-full max-w-2xl justify-center'>
-        {/* Update User Form */}
         <form
-          className='flex flex-col gap-4 border rounded-lg p-6 shadow w-full sm:w-96 bg-gray-50 dark:bg-neutral-900'
           action={updateUser}
+          className='flex flex-col gap-4 border rounded-lg p-6 shadow w-full sm:w-96 bg-gray-50 dark:bg-neutral-900'
         >
           <h2 className='text-lg font-semibold mb-2'>Update User</h2>
           <label className='flex flex-col gap-1'>
@@ -79,7 +81,6 @@ export default async function Home() {
           </button>
         </form>
 
-        {/* Login Form */}
         <form
           className='flex flex-col gap-4 border rounded-lg p-6 shadow w-full sm:w-96 bg-gray-50 dark:bg-neutral-900'
           action={loginWithPassword}
